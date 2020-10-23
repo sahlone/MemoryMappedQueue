@@ -1,0 +1,41 @@
+ext {
+    kotlinVersion = '1.4.10'
+    kotlinTest = '4.3.0'
+    detekt = '1.8.0'
+    jackson = '2.10.3'
+    sl4j = '1.7.25'
+    logstashLogbackEncoder = '5.0'
+    logback = '1.2.2'
+    komprehensions = '1.3.2'
+    config4k = '0.4.1'
+
+    libraries = [
+            'kotlinPlugin'          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+            'detekt'                : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt",
+            'detektKtLintFormat'    : "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt",
+            'kotlinStdlib'          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            'kotlinReflect'         : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+            'kotlinTest'            : "io.kotest:kotest-runner-junit5:$kotlinTest",
+            'kotlinTestAsserts'     : "io.kotest:kotest-assertions-core:$kotlinTest",
+            'kotlinTestProperty'     : "io.kotest:kotest-property:$kotlinTest",
+            'ktlint'                : "org.jlleitschuh.gradle:ktlint-gradle:9.1.1",
+
+
+            // json
+            'jacksonCore'           : "com.fasterxml.jackson.core:jackson-core:$jackson",
+            'jacksonDatabind'       : "com.fasterxml.jackson.core:jackson-databind:$jackson",
+            'jacksonKotlin'         : "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson",
+            'jacksonJsr310'         : "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson",
+
+            //logging
+            'sl4j'                  : "org.slf4j:slf4j-api:$sl4j",
+            'logstashLogbackEncoder': "net.logstash.logback:logstash-logback-encoder:$logstashLogbackEncoder",
+            'logbackClassic'        : "ch.qos.logback:logback-classic:$logback",
+
+            //config
+            'config4k'              : "io.github.config4k:config4k:$config4k",
+
+            //coroutines
+            'coroutines'            : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    ]
+}

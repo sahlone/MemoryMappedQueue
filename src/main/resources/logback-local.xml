@@ -1,0 +1,16 @@
+<configuration>
+    <property resource="static.properties"/>
+    <include resource="logback-logstash.xml"/>
+    <include resource="logback-levels.xml"/>
+    <appender name="MAIN" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-10thread] %-5level %-36logger{36}:%-4L %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="MAIN"/>
+    </root>
+
+
+</configuration>

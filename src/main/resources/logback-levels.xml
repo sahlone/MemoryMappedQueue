@@ -1,0 +1,9 @@
+<included
+        xmlns="http://ch.qos.logback/xml/ns/logback"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback https://raw.githubusercontent.com/logback-XSD/master/src/main/xsd/logback.xsd">
+    <logger name="org.apache.kafka" level="warn"/>
+    <logger name="org.reflections" level="warn"/>
+    <logger name="com.zaxxer.hikari" level="warn"/>
+    <logger name="org.jooq" level="warn"/>
+</included>

@@ -1,0 +1,8 @@
+<configuration>
+    <property resource="static.properties"/>
+    <include resource="logback-logstash.xml"/>
+    <include resource="logback-levels.xml"/>
+    <root level="${log.level:-DEBUG}">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
