@@ -11,9 +11,10 @@ buildscript {
 plugins {
     id 'org.jetbrains.kotlin.jvm' version "1.4.10"
     id 'idea'
-    id 'java-library'
     id "io.gitlab.arturbosch.detekt" version '1.8.0'
     id "maven"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+    id 'application'
 }
 
 group = 'com.github.sahlone'
@@ -107,3 +108,4 @@ install {
         }
     }
 }
+mainClassName = 'com.sahlone.mmq.Application'
