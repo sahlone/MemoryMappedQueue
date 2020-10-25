@@ -4,19 +4,19 @@
 
 Memory mapped queue is a high performance queue based on the concept of [Memory Mapped Files](https://en.wikipedia.org/wiki/Memory-mapped_file).
 
-The Queue is a circular queue which can in theory give unlimited no of operation provided there is space left under cetain conditions.
-The queue can store the data across system restrts as it is based on concept of file per queue.
+The Queue is a circular queue which can in theory give unlimited number of operation provided there is space left under certain conditions.
+The queue can store the data across system restricts as it is based on the concept of file per queue.
 The application can be started as targeting only one queue at a time, so if we need to have multiple queues we need to have multiple application instances running.
 
-Application takes a set of configuration as a strtup environment varibales that can help to tweak the application.
-The application also comes with predeined set of default values  so that the application can be started right away.
+Application takes a set of configuration as a startup environment variables that can help to tweak the application.
+The application also comes with predefined set of default values  so that the application can be started right away.
 
 ```
 QUEUE_BASE_DIR  [default: queue/data]  -> Directory within host application where queue data can be written
 QUEUE_SIZE_BYTES -> [default:20KB] Maximum size of queue in bytes( limited by the operating system and handware for 32bit vs 64 bit)
 QUEUE_NAME ->[default: memory-mapped-queue] name of the queue
 ```
-*Note* Once the Queue have been create the size cannot be changed within application but requires some maintainence work
+*Note* Once the Queue have been create the size cannot be changed within application but requires some maintenance work
 
 ### Commands
 ```
@@ -41,7 +41,7 @@ dependencies {
 }
 ```
 ### Building the Application
-The application can be build using gradle build tool to produce a executable/runnable jar that can be located under `build/libs` directory.
+The application can be build using gradle build tool to produce an executable/runnable jar that can be located under `build/libs` directory.
 To just build the application without running it,the included `build.sh` script can be invoked.
 ```
 $ sh build.sh
@@ -55,6 +55,6 @@ $ sh run.sh
 The above command will create executable jar file in builds folder that can be used to run the application
 Remember to have environment variables if you need to change the application properties
 ### Work in progress
-1. Implement Compare and Swap on head and tail for better concurrecy control
+1. Implement Compare and Swap on head and tail for better concurrency control
 2. Implement a Application server for multiple client connections
 
