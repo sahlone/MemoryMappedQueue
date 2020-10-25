@@ -4,7 +4,7 @@ import com.sahlone.mmq.config.AppConfig
 import com.sahlone.mmq.logging.TracingContext
 import com.sahlone.mmq.models.EnqDeqResult
 import com.sahlone.mmq.models.EnqDeqResultType
-import io.kotest.core.spec.style.AnnotationSpec
+import com.sahlone.mmq.queue.MMQueue
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.launch
@@ -26,7 +26,7 @@ class MemoryMappedReaderWriterTest : BehaviorSpec({
             then("insert no fo messages and give them back in order") {
                 val queue = MMQueue(baseConfig)
                 val messages = (0 until 10000).map {
-                    String("message ${UUID.randomUUID().toString()}".toByteArray())
+                    String("message ${UUID.randomUUID()}".toByteArray())
                 }
                 messages.map {
                     when (val result = queue.enqueue(tracingContext, it.toByteArray())) {
@@ -49,16 +49,15 @@ class MemoryMappedReaderWriterTest : BehaviorSpec({
                 }
             }
         }
-
     }
-    given("a concurrent memory mapped queue"){
+    given("a concurrent memory mapped queue") {
         `when`("multiple threads are interacting") {
             then("insert no fo messages and give them back in order") {
                 val queue = MMQueue(baseConfig)
                 val messages = (0 until 10000).map {
-                    String("message ${UUID.randomUUID().toString()}".toByteArray())
+                    String("message ${UUID.randomUUID()}".toByteArray())
                 }
-                val partitions = messages.mapIndexed {index, elem ->
+                val partitions = messages.mapIndexed { index, elem ->
                     index to elem
                 }.partition {
                     it.first % 2 == 0
@@ -101,7 +100,7 @@ class MemoryMappedReaderWriterTest : BehaviorSpec({
                         is EnqDeqResult.Companion.Failure -> fail("expected a success for enqueue")
                     }
                 }.toSet()
-                messages.forEach{
+                messages.forEach {
                     allMessages.contains(it) shouldBe true
                 }
                 allMessages.size shouldBe messages.size
@@ -109,5 +108,4 @@ class MemoryMappedReaderWriterTest : BehaviorSpec({
         }
     }
 })
-
 

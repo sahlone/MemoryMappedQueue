@@ -4,6 +4,7 @@ import com.sahlone.mmq.config.AppConfig
 import com.sahlone.mmq.logging.TracingContext
 import com.sahlone.mmq.models.EnqDeqResult
 import com.sahlone.mmq.models.EnqDeqResultType
+import com.sahlone.mmq.queue.MMQueue
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.fp.success
 import io.kotest.matchers.shouldBe
@@ -87,5 +88,4 @@ class MemoryMappedWriterTest : BehaviorSpec({
         }
     }
 })
-
 

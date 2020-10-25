@@ -40,17 +40,20 @@ dependencies {
     implementation 'com.github.sahlone:MemoryMappedQueue:$version'
 }
 ```
+### Building the Application
+The application can be build using gradle build tool to produce a executable/runnable jar that can be located under `build/libs` directory.
+To just build the application without running it,the included `build.sh` script can be invoked.
+```
+$ sh build.sh
+```
 ### Running the Application
 The application can also be run directly as an application
-Build the application to produce runnable jar
+The included shell script `run.sh` will build the application and run the application in current working directory
 ```
-$ ./gradlew clean installShadowDist
+$ sh run.sh
 ```
 The above command will create executable jar file in builds folder that can be used to run the application
 Remember to have environment variables if you need to change the application properties
-```
-$ java -jar  -Dlogback.configurationFile=logback.xml build/libs/MemoryMappedQueue-1.0.1-all.jar
-```
 ### Work in progress
 1. Implement Compare and Swap on head and tail for better concurrecy control
 2. Implement a Application server for multiple client connections

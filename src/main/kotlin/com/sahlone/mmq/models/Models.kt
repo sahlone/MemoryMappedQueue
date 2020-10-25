@@ -17,12 +17,13 @@ sealed class EnqDeqResult(open val resultType: EnqDeqResultType) {
             }
         }
 
-        public sealed class Failure(override val resultType: EnqDeqResultType) : EnqDeqResult(resultType) {
+        sealed class Failure(override val resultType: EnqDeqResultType) : EnqDeqResult(resultType) {
             companion object {
-                public data class QueueEmpty(override val resultType: EnqDeqResultType) : Failure(resultType)
-                public data class QueueFull(override val resultType: EnqDeqResultType) : Failure(resultType)
-                public data class QueueFault(override val resultType: EnqDeqResultType) : Failure(resultType)
-                public data class ProcessingException(override val resultType: EnqDeqResultType) : Failure(resultType)
+                data class QueueEmpty(override val resultType: EnqDeqResultType) : Failure(resultType)
+                data class QueueFull(override val resultType: EnqDeqResultType) : Failure(resultType)
+                data class QueueFault(override val resultType: EnqDeqResultType) : Failure(resultType)
+                data class ProcessingException(override val resultType: EnqDeqResultType, val err: Throwable) :
+                    Failure(resultType)
             }
         }
     }

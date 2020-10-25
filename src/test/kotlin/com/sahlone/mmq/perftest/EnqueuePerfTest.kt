@@ -1,13 +1,11 @@
 package com.sahlone.mmq.perftest
 
-import com.sahlone.mmq.MMQueue
+import com.sahlone.mmq.queue.MMQueue
 import com.sahlone.mmq.config.AppConfig
 import com.sahlone.mmq.logging.TracingContext
 import com.sahlone.mmq.perftest.utils.perfTestResult
 import io.kotest.core.spec.style.BehaviorSpec
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.Paths
 import java.util.UUID
 
 class EnqueuePerfTest : BehaviorSpec({

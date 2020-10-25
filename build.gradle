@@ -108,4 +108,5 @@ install {
         }
     }
 }
+tasks.build.dependsOn tasks.shadowJar
 mainClassName = 'com.sahlone.mmq.Application'

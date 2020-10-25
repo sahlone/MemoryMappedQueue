@@ -6,6 +6,7 @@ import com.sahlone.mmq.logging.createContextualLogger
 import com.sahlone.mmq.models.Command
 import com.sahlone.mmq.models.Command.Companion.ValidationResult.Companion
 import com.sahlone.mmq.models.EnqDeqResult
+import com.sahlone.mmq.queue.MMQueue
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
@@ -56,7 +57,7 @@ object Application {
     private fun shutdownApplication(tracingContext: TracingContext) {
         try {
             logger.debug(tracingContext) { "Shutting down queue" }
-            mmQueue.shutdown()
+            mmQueue.shutdown(tracingContext)
             logger.debug(tracingContext) { "Shutting down successful. Exiting the process" }
             exitProcess(0)
         } catch (err: IOException) {
@@ -70,7 +71,7 @@ object Application {
         println(VALID_COMMANDS)
     }
 
-    private suspend fun processCommand() {
+    private fun processCommand() {
         println("Please enter a command to proceed")
         println(VALID_COMMANDS)
         while (true) {
