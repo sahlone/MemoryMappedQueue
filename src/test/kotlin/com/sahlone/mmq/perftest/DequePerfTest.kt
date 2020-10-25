@@ -9,7 +9,7 @@ import java.io.File
 import java.util.UUID
 
 class DequePerfTest : BehaviorSpec({
-    val config = AppConfig("perftest/", 200000000, "perftest-${UUID.randomUUID()}")
+    val config = AppConfig("perftest/", 2000000000, "perftest-${UUID.randomUUID()}")
     afterTest { _ ->
         File(config.baseQueueDir).deleteRecursively()
     }

@@ -7,7 +7,23 @@ Memory mapped queue is a high performance queue based on the concept of [Memory 
 The Queue is a circular queue which can in theory give unlimited number of operation provided there is space left under certain conditions.
 The queue can store the data across system restricts as it is based on the concept of file per queue.
 The application can be started as targeting only one queue at a time, so if we need to have multiple queues we need to have multiple application instances running.
+### Perf Test results
+Configuration used for perf tests. 
+Benchmarks are yet to be published for better average results.
+```
+Machine : Macos Catalina
+Processor: 4Core i7 2.8GHZ
+Ram: 16GB
+```
 
+```
+======Perf test Results=====
+Total no of Operation: 8132 ms
+Total time: 8132 ms
+Latency per op: 813 ns
+Operation/s: 1229575
+========================================
+```
 Application takes a set of configuration as a startup environment variables that can help to tweak the application.
 The application also comes with predefined set of default values  so that the application can be started right away.
 
