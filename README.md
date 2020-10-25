@@ -18,7 +18,7 @@ Ram: 16GB
 
 ```
 ======Perf test Results=====
-Total no of Operation: 8132 ms
+Total no of Operation: 10000000
 Total time: 8132 ms
 Latency per op: 813 ns
 Operation/s: 1229575
